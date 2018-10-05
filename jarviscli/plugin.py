@@ -210,6 +210,14 @@ class PluginComposed(object):
         self._command_fallback = None
         self._command_sub = {}
 
+    def init(self, jarvis):
+        if self._command_fallback is not None:
+            if hasattr(self._command_fallback.__class__, "init") and callable(getattr(self._command_fallback.__class__, "init")):
+                self._command_fallback.init(jarvis)
+        for plugin in self._command_sub.values():
+            if hasattr(plugin.__class__, "init") and callable(getattr(plugin.__class__, "init")):
+                plugin.init(jarvis)
+
     def get_name(self):
         return self._name
 
