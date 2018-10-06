@@ -247,6 +247,7 @@ class CmdInterpreter(Cmd):
         """Closing Jarvis."""
         reminder_quit()
         print_say("Goodbye, see you later!", self, Fore.RED)
+        self.scheduler.stop_all()
         exit()
 
     def completedefault(self, text, line, begidx, endidx):
