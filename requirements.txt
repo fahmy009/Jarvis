@@ -34,3 +34,5 @@ termdown
 forex-python
 pluginmanager
 archey4; python_version >= '3.5'
+pytimeparse
+pick
